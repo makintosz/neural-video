@@ -1,5 +1,6 @@
 import os
 import time
+from typing import Union
 
 import cv2.cv2 as cv2
 import numpy as np
@@ -16,7 +17,7 @@ from neural_video.model.renderer_base import VideoRenderer
 
 
 class BasicVideoRenderer(VideoRenderer):
-    def __init__(self, settings: dict) -> None:
+    def __init__(self, settings: Union[dict, None] = None) -> None:
         self._settings = settings
         self._device = torch.device(DEVICE)
         self._model = Network().to(self._device)
